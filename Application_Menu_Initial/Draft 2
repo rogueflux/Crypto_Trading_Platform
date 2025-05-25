@@ -1,0 +1,95 @@
+#include <iostream>
+
+void printMenu() {
+    // Display menu
+    std::cout << "1: Print help" << std::endl;
+    std::cout << "2: Print exchange tips" << std::endl;
+    std::cout << "3: Place an Ask" << std::endl;
+    std::cout << "4: Place Bid" << std::endl;
+    std::cout << "5: Print Wallet" << std::endl;
+    std::cout << "6: Exit" << std::endl;
+
+    std::cout << "Type in 1-6: ";
+}
+
+int getUserOption() {
+    int userOption;
+    std::cin >> userOption;
+    return userOption;
+}
+
+void wrongChoice() {
+    std::cout << "Invalid Choice. Choose between 1-6." << std::endl;
+}
+
+void printHelp() {
+    std::cout << "Help - choose options from the menu" << std::endl;
+    std::cout << "and follow the on-screen instructions." << std::endl;
+}
+
+void printMarketStats() {
+    std::cout << "Market Looks Good" << std::endl;
+    std::cout << "Invest in Doge Coin" << std::endl;
+}
+
+void enterOffer() {
+    std::cout << "Make an Offer. Enter Amount to sell: ";
+    int offer_amount;
+    std::cin >> offer_amount;
+    std::cout << "You offered: " << offer_amount << " dollars" << std::endl;
+}
+
+void enterBid() {
+    std::cout << "Make a bid. Enter the amount: ";
+    int bid_amount;
+    std::cin >> bid_amount;
+    std::cout << "You bid: " << bid_amount << " dollars" << std::endl;
+}
+
+void printWallet() {
+    std::cout << "You got 1,000,000,000 dollars in your wallet" << std::endl;
+}
+
+void gotoNextTimeFrame() {
+    std::cout << "Ok bye!" << std::endl;
+}
+
+void processUserOption(int userOption) {
+    switch (userOption) {
+        case 1:
+            printHelp();
+            break;
+        case 2:
+            printMarketStats();
+            break;
+        case 3:
+            enterOffer();
+            break;
+        case 4:
+            enterBid();
+            break;
+        case 5:
+            printWallet();
+            break;
+        case 6:
+            gotoNextTimeFrame();
+            break;
+        default:
+            wrongChoice();
+            break;
+    }
+    std::cout << std::endl;
+}
+
+int main() {
+    while (true) {
+        printMenu();
+        int option = getUserOption();
+        if (option == 6) {
+            processUserOption(option);
+            break;
+        }
+        processUserOption(option);
+    }
+    return 0;
+}
